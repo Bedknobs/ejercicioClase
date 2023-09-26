@@ -11,7 +11,7 @@ const jsonObject = {
         "name": "León",
         "age": 8,
         "habitat": "Sabanas y llanuras",
-        "img": "./leon.jpg"
+        "img": "./leon.jpeg"
     },
     {
         "name": "Elefante",
@@ -22,13 +22,13 @@ const jsonObject = {
     {
         "name": "Llama",
         "age": 10,
-        "habitat": "Altiplano cubierto de arbustos, árboles atrofiados y pastos",
+        "habitat": "Altiplano cubierto de arbustos",
         "img": "./llama.webp"
     },
     {
         "name": "Oso",
         "age": 16,
-        "habitat": "Desde los hielos árticos hasta las selvas tropicales",
+        "habitat": "Selvas tropicales",
         "img": "./oso.jpg"
     },
 ]
@@ -50,6 +50,7 @@ function zooHeader(jsonObject){
 function zooAnimals(jsonObject){
     const animals = jsonObject["animals"];
     for (let i = 0; i < animals.length; i++){
+        const animalArticle = document.createElement("article");
         const animalName = document.createElement("h3");
         const animalAge = document.createElement("p");
         const animalHabitat = document.createElement("p");
@@ -58,12 +59,14 @@ function zooAnimals(jsonObject){
         animalName.textContent = animals[i].name;
         animalAge.textContent = "Tiene " + animals[i].age + " años";
         animalHabitat.textContent = "Habitat: " + animals[i].habitat;
-        animalImg.textContent = animals[i].img;
+        animalImg.src = animals[i].img;
 
-        section.appendChild(animalName);
-        section.appendChild(animalAge);
-        section.appendChild(animalHabitat);
-        section.appendChild(animalImg);
+        animalArticle.appendChild(animalName);
+        animalArticle.appendChild(animalAge);
+        animalArticle.appendChild(animalHabitat);
+        animalArticle.appendChild(animalImg);
+
+        section.appendChild(animalArticle);
     }
 }
 
